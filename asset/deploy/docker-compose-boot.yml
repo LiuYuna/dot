@@ -1,0 +1,22 @@
+name: dot
+
+services:
+  infra-mysql:
+    build:
+      context: ./mysql
+    container_name: dot-infra-mysql
+    restart: on-failure:3
+    ports:
+      - "3306:3306"
+    networks:
+      - dot-network
+    volumes:
+      - infra-mysql:/bitnami/mysql/data
+
+volumes:
+  infra-mysql:
+    driver: local
+
+networks:
+  dot-network:
+    driver: bridge

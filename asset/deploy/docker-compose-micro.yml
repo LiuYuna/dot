@@ -1,0 +1,36 @@
+name: dot
+
+services:
+  infra-mysql:
+    build:
+      context: ./mysql
+    container_name: dot-infra-mysql
+    restart: on-failure:3
+    ports:
+      - "3306:3306"
+    networks:
+      - dot-network
+    volumes:
+      - infra-mysql:/bitnami/mysql/data
+  infra-nacos:
+    build:
+      context: ./nacos
+    container_name: dot-infra-nacos
+    restart: on-failure:3
+    ports:
+      - "8080:8080"
+      - "8848:8848"
+      - "9848:9848"
+    networks:
+      - dot-network
+    depends_on:
+      - infra-mysql
+
+volumes:
+  infra-mysql:
+    name: dot-infra-mysql
+    driver: local
+
+networks:
+  dot-network:
+    driver: bridge

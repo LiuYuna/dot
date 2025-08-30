@@ -6,7 +6,7 @@
 
     <groupId>cn.isuuuu</groupId>
     <artifactId>dot-service</artifactId>
-    <version>1.0-SNAPSHOT</version> <!-- 应用版本号 -->
+    <version>dot.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -34,5 +34,17 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.isuuuu</groupId>
+                <artifactId>dot-bom</artifactId>
+                <version>dot.1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
