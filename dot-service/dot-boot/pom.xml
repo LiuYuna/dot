@@ -6,9 +6,16 @@
     <parent>
         <groupId>cn.isuuuu</groupId>
         <artifactId>dot-service</artifactId>
-        <version>1.0-SNAPSHOT</version> <!-- 应用版本号 -->
+        <version>dot.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>dot-boot</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>dot-boot-gateway</module>
+        <module>dot-boot-base</module>
+        <module>dot-boot-auth</module>
+    </modules>
 
 </project>

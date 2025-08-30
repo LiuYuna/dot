@@ -16,16 +16,16 @@ Thumbs.db
 # =====================
 # dot-service
 # =====================
-dot-service/target/
-dot-service/bin/
-dot-service/*.jar
-dot-service/*.war
-dot-service/*.ear
-dot-service/*.class
-dot-service/.classpath
-dot-service/.project
-dot-service/.settings/
-dot-service/.idea/
+dot-service/**/target/
+dot-service/**/bin/
+dot-service/**/*.jar
+dot-service/**/*.war
+dot-service/**/*.ear
+dot-service/**/*.class
+dot-service/**/.classpath
+dot-service/**/.project
+dot-service/**/.settings/
+dot-service/**/.idea/
 
 # =====================
 # dot-ui

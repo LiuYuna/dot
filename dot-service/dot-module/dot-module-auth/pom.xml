@@ -9,12 +9,12 @@
         <version>dot.1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dot-module-base</artifactId>
+    <artifactId>dot-module-auth</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>dot-module-base-api</module>
-        <module>dot-module-base-biz</module>
+        <module>dot-module-auth-api</module>
+        <module>dot-module-auth-biz</module>
     </modules>
 
 </project>

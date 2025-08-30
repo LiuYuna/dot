@@ -1,0 +1,36 @@
+name: dot
+
+services:
+  database:
+    build:
+      context: ./mysql
+    container_name: dot-database
+    restart: on-failure:3
+    ports:
+      - "3306:3306"
+    networks:
+      - network
+    volumes:
+      - database:/bitnami/mysql/data
+
+  register:
+    build:
+      context: ./nacos
+    container_name: dot-register
+    restart: on-failure:3
+    ports:
+      - "8080:8080"
+      - "8848:8848"
+      - "9848:9848"
+    networks:
+      - network
+    depends_on:
+      - database
+
+volumes:
+  database:
+    driver: local
+
+networks:
+  network:
+    driver: bridge

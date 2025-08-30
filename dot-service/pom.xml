@@ -6,12 +6,12 @@
 
     <groupId>cn.isuuuu</groupId>
     <artifactId>dot-service</artifactId>
-    <version>1.0-SNAPSHOT</version> <!-- 应用版本号 -->
+    <version>dot.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
+        <module>dot-bom</module>
         <module>dot-boot</module>
-        <module>dot-micro</module>
         <module>dot-module</module>
     </modules>
 
@@ -34,5 +34,57 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <profiles>
+        <profile>
+            <!-- 本地环境配置 -->
+            <id>local</id>
+            <properties>
+                <!-- nacos 命名空间 -->
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <nacos.namespace>local</nacos.namespace>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 生产环境配置 -->
+            <id>prod</id>
+            <properties>
+                <!-- nacos 命名空间 -->
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <nacos.namespace>prod</nacos.namespace>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.isuuuu</groupId>
+                <artifactId>dot-bom</artifactId>
+                <version>dot.1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>app</finalName>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*.yml</include>
+                    <include>*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 
 </project>

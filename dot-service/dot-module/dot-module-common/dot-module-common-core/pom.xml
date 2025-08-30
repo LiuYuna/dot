@@ -5,24 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.isuuuu</groupId>
-        <artifactId>dot-module-base</artifactId>
+        <artifactId>dot-module-common</artifactId>
         <version>dot.1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dot-module-base-biz</artifactId>
+    <artifactId>dot-module-common-core</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>cn.isuuuu</groupId>
-            <artifactId>dot-module-common-core</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.isuuuu</groupId>
-            <artifactId>dot-module-common-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.isuuuu</groupId>
-            <artifactId>dot-module-common-mybatis</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
